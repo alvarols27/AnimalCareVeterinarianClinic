@@ -1,0 +1,374 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.MedicalHistory
+
+@{
+    ViewData["Title"] = "Medical History Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow">
+                <div class="card-header bg-primary-gradient text-white">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <h3 class="mb-0">Medical History Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="details-grid">
+                        <div class="detail-card">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                @Html.DisplayNameFor(model => model.ConsultationDate)
+                            </div>
+                            <div class="detail-value">@Html.DisplayFor(model => model.ConsultationDate)</div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                    <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"></path>
+                                </svg>
+                                @Html.DisplayNameFor(model => model.Animal)
+                            </div>
+                            <div class="detail-value">@Model.Animal.AnimalName (@Model.Animal.Species)</div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                @Html.DisplayNameFor(model => model.Vet)
+                            </div>
+                            <div class="detail-value">Dr. @Model.Vet.VetFirstName @Model.Vet.VetLastName</div>
+                        </div>
+                    </div>
+
+                    <div class="medical-info">
+                        <div class="info-section">
+                            <h5>
+                                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 16v-4"></path>
+                                    <path d="M12 8h.01"></path>
+                                </svg>
+                                Observations
+                            </h5>
+                            <p>@(Model.Observations ?? "No observations recorded")</p>
+                        </div>
+
+                        <div class="info-section">
+                            <h5>
+                                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                Diagnosis
+                            </h5>
+                            <p>@(Model.Diagnosis ?? "No diagnosis recorded")</p>
+                        </div>
+
+                        <div class="info-section">
+                            <h5>
+                                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                Treatment
+                            </h5>
+                            <p>@(Model.Treatment ?? "No treatment recorded")</p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <span class="btn-icon icon-back"></span> Back to List
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@Model.HistoryId" class="btn btn-primary">
+                            <span class="btn-icon icon-edit"></span> Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.HistoryId" class="btn btn-danger">
+                            <span class="btn-icon icon-delete"></span> Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+        --danger-red: #dc2626;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.2rem 1.5rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%) !important;
+    }
+
+    .header-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+        .header-icon svg {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+    .card-header h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .detail-card {
+        background: var(--bg-light);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    .detail-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .detail-icon {
+        width: 16px;
+        height: 16px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .detail-value {
+        color: var(--text-dark);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .medical-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .info-section {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.2rem;
+    }
+
+        .info-section h5 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+    .section-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .info-section p {
+        color: #64748b;
+        line-height: 1.6;
+        margin: 0;
+        white-space: pre-wrap;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+    .btn-danger {
+        background: linear-gradient(135deg, var(--danger-red), #b91c1c);
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-back::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 4px;
+    }
+
+    .icon-edit::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-right: none;
+        border-top: none;
+        transform: skew(-10deg);
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-edit::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        top: 1px;
+        right: 2px;
+    }
+
+    .icon-delete::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 12px;
+        border: 2px solid currentColor;
+        border-radius: 0 0 2px 2px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-delete::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 2px;
+        background: currentColor;
+        top: 1px;
+        left: 1px;
+    }
+
+    @@media (max-width: 768px) {
+        .details-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

@@ -1,0 +1,599 @@
+﻿@using AnimalCareVeterinaryClinicDBFirst.Models
+@inject AnimalCareContext _context
+
+@{
+    ViewData["Title"] = "Dashboard";
+
+    // Get counts
+    var ownerCount = _context.Owners.Count();
+    var animalCount = _context.Animals.Count();
+    var appointmentCount = _context.Appointments.Count();
+    // var today = DateTime.Today;
+    // var tomorrow = today.AddDays(1);
+
+    // var todayAppointments = _context.Appointments
+    //  .Count(a =>
+    //      a.StartDateTime >= today &&
+    //      a.StartDateTime < tomorrow &&
+    //    );
+
+
+
+}
+
+<div class="dashboard-container">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">AnimalCare Veterinary Clinic</h1>
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p class="hero-subtitle">
+                    Welcome back, <strong>@User.Identity.Name</strong>
+                </p>
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <div class="role-badge badge-admin">Administrator Access</div>
+                }
+                else if (User.IsInRole("Veterinarian"))
+                {
+                    <div class="role-badge badge-vet">Veterinarian</div>
+                }
+                else if (User.IsInRole("Receptionist"))
+                {
+                    <div class="role-badge badge-reception">Front Desk</div>
+                }
+            }
+            else
+            {
+                <p class="hero-subtitle">Professional Pet Healthcare Services</p>
+            }
+        </div>
+    </div>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+
+            <div class="stat-card border-primary-soft">
+                <div class="stat-icon text-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@ownerCount</div>
+                    <div class="stat-label">Registered Owners</div>
+                </div>
+                <a asp-controller="Owners" asp-action="Index" class="stat-link text-primary">View All →</a>
+            </div>
+
+            <div class="stat-card border-success-soft">
+                <div class="stat-icon text-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="10" r="3"></circle>
+                        <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"></path>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@animalCount</div>
+                    <div class="stat-label">Animals in Care</div>
+                </div>
+                <a asp-controller="Animals" asp-action="Index" class="stat-link text-success">View All →</a>
+            </div>
+
+            <div class="stat-card border-info-soft">
+                <div class="stat-icon text-info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@appointmentCount</div>
+                    <div class="stat-label">Total Appointments</div>
+                </div>
+                <a asp-controller="Appointments" asp-action="Index" class="stat-link text-info">View All →</a>
+            </div>
+
+            <div class="stat-card border-warning-soft">
+                <div class="stat-icon text-warning">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">@ViewBag.TodayAppointments</div>
+                    <div class="stat-label">Today's Appointments</div>
+                </div>
+                <a asp-controller="DailyAgenda" asp-action="Index" class="stat-link text-warning">View Schedule →</a>
+            </div>
+        </div>
+        @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+        {
+            <!-- Quick Access -->
+            <h2 class="section-title mt-4">Quick Access</h2>
+
+            <div class="cards-grid">
+
+                @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+                {
+                    <a asp-controller="Appointments" asp-action="Create" class="action-card">
+                        <div class="action-icon bg-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3>New Appointment</h3>
+                        <p>Schedule a new patient appointment</p>
+                    </a>
+
+                    <a asp-controller="Animals" asp-action="Create" class="action-card">
+                        <div class="action-icon bg-success">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h3>Register Animal</h3>
+                        <p>Add new animal to the system</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("Administrator") || User.IsInRole("Veterinarian") || User.IsInRole("Receptionist"))
+                {
+                    <a asp-controller="DailyAgenda" asp-action="Index" class="action-card">
+                        <div class="action-icon bg-info">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <h3>Daily Schedule</h3>
+                        <p>View today's agenda and appointments</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a asp-controller="MedicalHistories" asp-action="Index" class="action-card">
+                        <div class="action-icon bg-danger">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h3>Medical Records</h3>
+                        <p>Access patient medical history</p>
+                    </a>
+                }
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a asp-controller="MonthlyReport" asp-action="Index" class="action-card">
+                        <div class="action-icon bg-warning">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="20" x2="12" y2="10"></line>
+                                <line x1="18" y1="20" x2="18" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="16"></line>
+                            </svg>
+                        </div>
+                        <h3>Analytics</h3>
+                        <p>View monthly reports and statistics</p>
+                    </a>
+
+                    <a asp-controller="UserAccounts" asp-action="Index" class="action-card">
+                        <div class="action-icon bg-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3>User Management</h3>
+                        <p>Manage system users and permissions</p>
+                    </a>
+                }
+            </div>
+        }
+        <!-- Info Banner -->
+        <div class="info-banner">
+            @if (User.IsInRole("Administrator"))
+            {
+                <div class="info-content">
+                    <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <div>
+                        <strong>Administrator Access:</strong>
+                        Full system control, user management & analytics.
+                    </div>
+                </div>
+            }
+            else if (User.IsInRole("Veterinarian"))
+            {
+                <div class="info-content">
+                    <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <div>
+                        <strong>Today's Schedule:</strong>
+                        You have @ViewBag.TodayAppointments
+                        appointments.
+                        <a asp-controller="DailyAgenda" asp-action="Index" class="info-link">View Schedule →</a>
+                    </div>
+                </div>
+            }
+            else if (User.IsInRole("Receptionist"))
+            {
+                <div class="info-content">
+                    <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <div>
+                        <strong>Front Desk Dashboard:</strong>
+                        @ViewBag.TodayAppointments
+                        appointments today.
+                    </div>
+                </div>
+            }
+        </div>
+
+    }
+    else
+    {
+        <!-- Not Logged In -->
+        <div class="login-prompt">
+            <h2>Please Log In</h2>
+            <p>Access the dashboard to manage appointments and records.</p>
+            <a asp-controller="Auth" asp-action="Login" class="btn-primary-custom">Log In to Dashboard</a>
+        </div>
+    }
+</div>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        zoom: 0.9;
+
+    }
+
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --primary-blue-light: #3b82f6;
+        --bg-light: #f8fafc;
+        --border-soft: #e5e7eb;
+        --text-dark: #1f2937;
+        --text-muted: #6b7280;
+    }
+
+    body {
+        background: radial-gradient(circle at 20% 30%, rgba(59,130,246,0.22) 0%, transparent 40%), radial-gradient(circle at 80% 60%, rgba(14,165,233,0.18) 0%, transparent 50%), #f1f5f9;
+    }
+
+
+    .stat-card, .action-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+        .stat-card:hover, .action-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+
+
+    .dashboard-container {
+        padding: 0.8rem 0.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+
+
+    /* HERO */
+    .hero-section {
+        background: white;
+        border-radius: 12px;
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-blue-dark);
+        margin-bottom: 0.3rem;
+    }
+
+    .hero-subtitle {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+    }
+
+    .role-badge {
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        color: white;
+        display: inline-block;
+        margin-top: 0.4rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -80px;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0.15) 40%, rgba(37, 99, 235, 0.08) 70%, rgba(37, 99, 235, 0.00) 100% );
+        border-radius: 50%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .badge-admin {
+        background: #dc2626;
+    }
+
+    .badge-vet {
+        background: #059669;
+    }
+
+    .badge-reception {
+        background: #2563eb;
+    }
+
+    /* STAT CARDS */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--border-soft);
+        transition: all 0.2s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+    .stat-icon {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.8rem;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--text-dark);
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .stat-link {
+        margin-top: 0.8rem;
+        display: inline-block;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.75rem;
+    }
+
+    /* QUICK ACCESS */
+    .section-title {
+        color: var(--primary-blue-dark);
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        margin-top: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .action-card {
+        background: white;
+        padding: 1.2rem;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--text-dark);
+        border: 1px solid var(--border-soft);
+        transition: all 0.2s ease;
+    }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+    .action-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.8rem;
+    }
+
+        .action-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+    .bg-primary {
+        background: var(--primary-blue);
+    }
+
+    .bg-success {
+        background: #059669;
+    }
+
+    .bg-info {
+        background: var(--primary-blue-light);
+    }
+
+    .bg-danger {
+        background: #dc2626;
+    }
+
+    .bg-warning {
+        background: #d97706;
+    }
+
+    .action-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+    }
+
+    .action-card p {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+    }
+
+    /* INFO BANNER */
+    .info-banner {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-soft);
+        margin-top: 1rem;
+    }
+
+    .info-content {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .info-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .info-link {
+        color: var(--primary-blue);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .info-link:hover {
+            text-decoration: underline;
+        }
+
+    /* LOGIN PROMPT */
+    .login-prompt {
+        text-align: center;
+        background: white;
+        padding: 3rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-primary-custom {
+        padding: 0.9rem 2rem;
+        background: var(--primary-blue);
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-primary-custom:hover {
+            background: var(--primary-blue-dark);
+        }
+
+    /* RESPONSIVE */
+    @@media (max-width: 768px) {
+        .hero-title {
+            font-size: 1.5rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-container {
+            padding: 0.5rem;
+        }
+
+        .hero-section {
+            padding: 1rem;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .hero-title {
+            font-size: 1.3rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+        }
+    }
+</style>

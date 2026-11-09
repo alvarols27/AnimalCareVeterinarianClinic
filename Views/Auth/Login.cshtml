@@ -1,0 +1,439 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-container">
+    <!-- Hero Section -->
+    <div class="hero-section-login">
+        <div class="hero-content">
+            <div class="logo-icon-large"></div>
+            <h1 class="hero-title">Welcome to AnimalCare</h1>
+            <p class="hero-subtitle">Professional Veterinary Care Management System</p>
+        </div>
+    </div>
+
+    <!-- Login Card -->
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="card-header-login">
+                <h3>Login to Your Account</h3>
+                <p>Enter your credentials to access the system</p>
+            </div>
+            <div class="card-body-login">
+                @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
+                {
+                    <div class="alert-danger-custom" role="alert">
+                        <div class="alert-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Error:</strong> @Model.ErrorMessage
+                        </div>
+                    </div>
+                }
+                <form asp-controller="Auth" asp-action="Login" method="post">
+                    <div class="form-group-custom">
+                        <label asp-for="Username" class="form-label-custom">
+                            <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Username
+                        </label>
+                        <input asp-for="Username" class="form-input-custom"
+                               placeholder="Enter your username" autofocus />
+                        <span asp-validation-for="Username" class="text-danger-custom"></span>
+                    </div>
+                    <div class="form-group-custom">
+                        <label asp-for="Password" class="form-label-custom">
+                            <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Password
+                        </label>
+                        <input asp-for="Password" class="form-input-custom"
+                               placeholder="Enter your password" />
+                        <span asp-validation-for="Password" class="text-danger-custom"></span>
+                    </div>
+                    <button type="submit" class="btn-login-custom">
+                        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section-login">
+        <div class="info-card-login">
+            <div class="info-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </div>
+            <div>
+                <strong>Need Help?</strong>
+                <p>Contact your system administrator for account access or password reset.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --primary-blue-light: #3b82f6;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --border-soft: #e2e8f0;
+    }
+
+    /* DASHBOARD CONTAINER */
+    .dashboard-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    /* HERO SECTION - LOGIN */
+    .hero-section-login {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+    }
+
+        .hero-section-login::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-icon-large {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: relative;
+    }
+
+        .logo-icon-large::before {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 50% 50% 0 50%;
+            transform: rotate(-45deg);
+            position: absolute;
+        }
+
+        .logo-icon-large::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 1;
+        }
+
+    .hero-title {
+        color: white;
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    /* LOGIN WRAPPER */
+    .login-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 12px;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+    }
+
+    .card-header-login {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border-soft);
+        text-align: center;
+    }
+
+        .card-header-login h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0 0 0.3rem 0;
+        }
+
+        .card-header-login p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+    .card-body-login {
+        padding: 2rem;
+    }
+
+    /* ALERT */
+    .alert-danger-custom {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .alert-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+        .alert-icon svg {
+            width: 100%;
+            height: 100%;
+            color: #dc2626;
+        }
+
+    .alert-danger-custom strong {
+        color: #991b1b;
+    }
+
+    .alert-danger-custom div {
+        color: #991b1b;
+        font-size: 0.9rem;
+    }
+
+    /* FORM */
+    .form-group-custom {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label-custom {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-dark);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .label-icon {
+        width: 16px;
+        height: 16px;
+        color: var(--primary-blue);
+    }
+
+    .form-input-custom {
+        width: 100%;
+        border: 1px solid var(--border-soft);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        color: var(--text-dark);
+    }
+
+        .form-input-custom:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+        .form-input-custom::placeholder {
+            color: #94a3b8;
+        }
+
+    .text-danger-custom {
+        color: #dc2626;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    /* BUTTON */
+    .btn-login-custom {
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+        .btn-login-custom:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-login-custom:active {
+            transform: translateY(0);
+        }
+
+    .btn-icon-svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* INFO SECTION */
+    .info-section-login {
+        max-width: 500px;
+        margin: 2rem auto 0;
+    }
+
+    .info-card-login {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-soft);
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .info-icon-wrapper {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+        .info-icon-wrapper svg {
+            width: 100%;
+            height: 100%;
+            color: var(--primary-blue);
+        }
+
+    .info-card-login strong {
+        display: block;
+        color: var(--text-dark);
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+    }
+
+    .info-card-login p {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @@media (max-width: 768px) {
+        .hero-title {
+            font-size: 1.5rem;
+        }
+
+        .hero-section-login {
+            padding: 2rem 1.5rem;
+        }
+
+        .card-body-login {
+            padding: 1.5rem;
+        }
+
+        .dashboard-container {
+            padding: 0.5rem;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .hero-title {
+            font-size: 1.3rem;
+        }
+
+        .logo-icon-large {
+            width: 60px;
+            height: 60px;
+        }
+
+            .logo-icon-large::before {
+                width: 30px;
+                height: 30px;
+            }
+
+            .logo-icon-large::after {
+                width: 12px;
+                height: 12px;
+                top: 19px;
+                left: 19px;
+            }
+
+        .card-header-login {
+            padding: 1.2rem 1.5rem;
+        }
+
+        .card-body-login {
+            padding: 1.2rem;
+        }
+    }
+</style>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

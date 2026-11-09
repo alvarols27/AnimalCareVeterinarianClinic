@@ -1,0 +1,853 @@
+﻿@model IEnumerable<AnimalCareVeterinaryClinicDBFirst.Models.MonthlyReport>
+
+@{
+    ViewData["Title"] = "Monthly Report";
+}
+
+<div class="table-card">
+    <div class="table-card-header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 3v18h18"></path>
+                    <path d="M18 17V9"></path>
+                    <path d="M13 17V5"></path>
+                    <path d="M8 17v-3"></path>
+                </svg>
+            </div>
+            <h2>Monthly Reports</h2>
+        </div>
+        <div class="report-badge">
+            <svg class="report-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Performance Analytics
+        </div>
+    </div>
+
+    <div class="filter-container">
+        <form method="post" class="filter-form">
+            <div class="filter-row">
+                <div class="filter-field">
+                    <label class="filter-label">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Month
+                    </label>
+                    <select name="month" class="form-select">
+                        <option value="">-- All Months --</option>
+                        @for (int m = 1; m <= 12; m++)
+                        {
+                            <option value="@m" selected="@(ViewBag.Month == m)">
+                                @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <div class="filter-field">
+                    <label class="filter-label">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Year
+                    </label>
+                    <select name="year" class="form-select">
+                        <option value="">-- All Years --</option>
+                        @for (int y = DateTime.Now.Year; y >= DateTime.Now.Year - 5; y--)
+                        {
+                            <option value="@y" selected="@(ViewBag.Year == y)">@y</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="filter-field filter-button-field">
+                    <button type="submit" class="btn-filter">
+                        <svg class="btn-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                        </svg>
+                        Apply Filter
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (ViewBag.FilterApplied == false)
+    {
+        <div class="info-message">
+            <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div>
+                <strong>Filter Required</strong>
+                <p>Select Month & Year then click Apply Filter to view reports.</p>
+            </div>
+        </div>
+    }
+    else if (!Model.Any())
+    {
+        <div class="warning-message">
+            <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <div>
+                <strong>No Data Found</strong>
+                <p>No reports available for the selected period.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="pretty-table">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Appointments</th>
+                        <th>Canceled</th>
+                        <th>Active Vets</th>
+                        <th>Occupancy Rate</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="period-cell">
+                                    <svg class="period-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <div>
+                                        <div class="period-month">@item.Month</div>
+                                        <div class="period-year">@item.Year</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="stat-cell">
+                                    <svg class="stat-icon stat-icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <strong>@item.NumberOfAppointments</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="stat-cell">
+                                    <svg class="stat-icon stat-icon-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                                    </svg>
+                                    <strong>@item.NumberCanceled</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="stat-cell">
+                                    <svg class="stat-icon stat-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <strong>@item.NumberOfActiveVets</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="occupancy-cell">
+                                    @{
+                                        var occupancyRate = item.OccupancyRate;
+                                        var rateClass = occupancyRate >= 80 ? "rate-high" : occupancyRate >= 50 ? "rate-medium" : "rate-low";
+                                    }
+                                    <div class="occupancy-badge @rateClass">
+                                        <svg class="occupancy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
+                                        <strong>@occupancyRate%</strong>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill @rateClass" style="width: @occupancyRate%"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-section">
+            <h4 class="chart-title">
+                <svg class="chart-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                </svg>
+                Performance Overview
+            </h4>
+
+            <div class="chart-wrapper">
+                <div class="chart-main">
+                    <canvas id="reportChart"></canvas>
+                </div>
+
+                <div class="chart-sidebar">
+                    <div class="pie-card">
+                        <h6 class="pie-title">Monthly Breakdown</h6>
+                        <canvas id="pieChart" width="160" height="160"></canvas>
+                        <p class="pie-subtitle">Appointments vs Cancellations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="export-section">
+            <a asp-action="ExportExcel" class="btn-export">
+                <svg class="export-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export to Excel
+            </a>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const labels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                            Model.Select(x => System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(x.Month ?? 0) + " " + x.Year)));
+
+        const appointmentData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.NumberOfAppointments)));
+        const canceledData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.NumberCanceled)));
+        const occupancyData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.OccupancyRate)));
+
+            /* MAIN BAR + LINE CHART */
+            new Chart(document.getElementById('reportChart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Appointments',
+                            data: appointmentData,
+                            backgroundColor: 'rgba(37, 99, 235, 0.7)',
+                            borderColor: 'rgba(37, 99, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Canceled',
+                            data: canceledData,
+                            backgroundColor: 'rgba(220, 38, 38, 0.7)',
+                            borderColor: 'rgba(220, 38, 38, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Occupancy %',
+                            data: occupancyData,
+                            type: 'line',
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            /* PIE CHART */
+            new Chart(document.getElementById('pieChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Appointments', 'Canceled'],
+                    datasets: [{
+                        data: [
+                            appointmentData.reduce((a, b) => a + b, 0),
+                            canceledData.reduce((a, b) => a + b, 0)
+                        ],
+                        backgroundColor: [
+                            'rgba(37, 99, 235, 0.8)',
+                            'rgba(220, 38, 38, 0.8)'
+                        ],
+                        borderColor: ['#2563eb', '#dc2626'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        </script>
+        }
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --success-green: #059669;
+        --danger-red: #dc2626;
+        --warning-orange: #d97706;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+    }
+
+    .table-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        margin: 1.5rem 0;
+    }
+
+    .table-card-header {
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .header-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .header-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+    .table-card-header h2 {
+        color: white;
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .report-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .report-icon {
+        width: 18px;
+        height: 18px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    /* FILTER SECTION */
+    .filter-container {
+        padding: 1.5rem;
+        background: var(--bg-light);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-form {
+        margin: 0;
+    }
+
+    .filter-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 1rem;
+        align-items: end;
+    }
+
+    .filter-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .filter-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+    }
+
+    .filter-icon {
+        width: 16px;
+        height: 16px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .form-select {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        background-color: white;
+    }
+
+        .form-select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+    .btn-filter {
+        padding: 0.6rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+        .btn-filter:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+    .btn-filter-icon {
+        width: 16px;
+        height: 16px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    /* MESSAGES */
+    .info-message, .warning-message {
+        margin: 1.5rem;
+        padding: 1.2rem;
+        border-radius: 8px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .info-message {
+        background: #dbeafe;
+        border: 1px solid #93c5fd;
+    }
+
+    .warning-message {
+        background: #fef3c7;
+        border: 1px solid #fcd34d;
+    }
+
+    .info-icon, .warning-icon {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    .info-icon {
+        color: var(--primary-blue);
+    }
+
+    .warning-icon {
+        color: var(--warning-orange);
+    }
+
+    .info-message strong, .warning-message strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--text-dark);
+    }
+
+    .info-message p, .warning-message p {
+        margin: 0;
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+
+    /* TABLE */
+    .table-responsive {
+        overflow-x: auto;
+        padding: 1.5rem;
+    }
+
+    .pretty-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .pretty-table thead {
+            background: var(--bg-light);
+        }
+
+        .pretty-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .pretty-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #1e293b;
+            font-size: 0.9rem;
+        }
+
+        .pretty-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+            .pretty-table tbody tr:hover {
+                background: var(--bg-light);
+            }
+
+    .period-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .period-icon {
+        width: 32px;
+        height: 32px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .period-month {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text-dark);
+    }
+
+    .period-year {
+        color: #64748b;
+        font-size: 0.8rem;
+    }
+
+    .stat-cell {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .stat-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .stat-icon-blue {
+        color: var(--primary-blue);
+    }
+
+    .stat-icon-red {
+        color: var(--danger-red);
+    }
+
+    .stat-icon-green {
+        color: var(--success-green);
+    }
+
+    .occupancy-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .occupancy-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        width: fit-content;
+    }
+
+    .occupancy-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+    }
+
+    .occupancy-badge.rate-high {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+        .occupancy-badge.rate-high .occupancy-icon {
+            color: #15803d;
+        }
+
+    .occupancy-badge.rate-medium {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+        .occupancy-badge.rate-medium .occupancy-icon {
+            color: #d97706;
+        }
+
+    .occupancy-badge.rate-low {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+        .occupancy-badge.rate-low .occupancy-icon {
+            color: #dc2626;
+        }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.3s ease;
+    }
+
+        .progress-fill.rate-high {
+            background: linear-gradient(90deg, var(--success-green), #047857);
+        }
+
+        .progress-fill.rate-medium {
+            background: linear-gradient(90deg, var(--warning-orange), #b45309);
+        }
+
+        .progress-fill.rate-low {
+            background: linear-gradient(90deg, var(--danger-red), #b91c1c);
+        }
+
+    /* CHARTS SECTION */
+    .chart-section {
+        padding: 1.5rem;
+        background: var(--bg-light);
+        border-top: 1px solid var(--border-color);
+    }
+
+    .chart-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .chart-title-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .chart-wrapper {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .chart-main {
+        flex: 1;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        min-height: 300px;
+    }
+
+    #reportChart {
+        max-height: 300px !important;
+    }
+
+    .chart-sidebar {
+        width: 250px;
+        flex-shrink: 0;
+    }
+
+    .pie-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .pie-title {
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .pie-subtitle {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        color: #64748b;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    /* EXPORT SECTION */
+    .export-section {
+        padding: 1.5rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .btn-export {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.7rem 1.3rem;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+        .btn-export:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            color: white;
+        }
+
+    .export-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+
+    /* RESPONSIVE */
+    @@media (max-width: 768px) {
+        .table-card-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .report-badge {
+            justify-content: center;
+        }
+
+        .filter-row {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-filter {
+            width: 100%;
+        }
+
+        .pretty-table {
+            font-size: 0.85rem;
+        }
+
+            .pretty-table th,
+            .pretty-table td {
+                padding: 0.7rem;
+            }
+
+        .period-cell {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .stat-cell {
+            justify-content: center;
+        }
+
+        .chart-wrapper {
+            flex-direction: column;
+        }
+
+        .chart-sidebar {
+            width: 100%;
+        }
+
+        .chart-main {
+            min-height: 250px;
+        }
+    }
+</style>

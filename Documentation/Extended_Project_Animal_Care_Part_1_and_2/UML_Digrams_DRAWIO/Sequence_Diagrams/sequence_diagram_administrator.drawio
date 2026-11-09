@@ -1,0 +1,966 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.7">
+  <diagram name="Page-1" id="fwZWGxHHhBt2oNFV2964">
+    <mxGraphModel dx="1747" dy="927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-1" value="Administrator" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;size=65;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="35" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-2" value="User Interface" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="352" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-3" value="Authentication Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="641" y="20" width="200" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-4" value="User Management Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="891" y="20" width="225" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-5" value="Role Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1166" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-6" value="Report Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1366" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-7" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1666" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-8" value="Email Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1866" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-9" value="Audit Log Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="2066" y="20" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-10" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="95" width="2116" height="619" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-11" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-10">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-12" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="724" width="2116" height="1467" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-13" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-12">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-14" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="2201" width="2116" height="1473" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-15" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-14">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-16" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="3684" width="2116" height="835" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-17" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-16">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-18" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="4529" width="2116" height="1563" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-19" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-18">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-20" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="6102" width="2116" height="641" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-21" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-20">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-22" value="" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=0" vertex="1" parent="1">
+          <mxGeometry x="60" y="6753" width="2116" height="411" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-23" value="" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="JcAl-QFKSVPmOpr8AMmV-22">
+          <mxGeometry width="2116" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-24" value="Enter Login Credentials" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="196" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-25" value="Authenticate(username, password)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="593" y="248" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-26" value="Query User Table" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-27" value="Return User Record" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1253" y="352" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-28" value="Verify Password Hash" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792" y="404" />
+              <mxPoint x="792" y="434" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-29" value="Check Role Permissions" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="486" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-30" value="Return Role: Administrator" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1253" y="538" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-31" value="Log Login Activity" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-32" value="Authentication Success + Token" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="596" y="642" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-33" value="Display Admin Dashboard" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="694" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-34" value="Click &quot;Create User&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-35" value="Request User Creation Form" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="877" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-36" value="Get Available Roles" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1131" y="929" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-37" value="Query Roles Table" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-5" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1500" y="981" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-38" value="Return Roles List" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1503" y="1033" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-39" value="Return Roles" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-5" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1134" y="1085" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-40" value="Display User Form" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="1137" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-41" value="Enter User Details (Login, Email, Role)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="1189" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-42" value="Validate User Data" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="1241" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-43" value="Validate Login Format" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="1293" />
+              <mxPoint x="1055" y="1323" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-44" value="Validate Email Format" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="1375" />
+              <mxPoint x="1055" y="1405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-45" value="Check for Duplicate Login/Email" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="1457" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-46" value="No Duplicate Found" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="1509" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-47" value="Generate Temporary Password" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="1561" />
+              <mxPoint x="1055" y="1591" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-48" value="Hash Password" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="1643" />
+              <mxPoint x="1055" y="1673" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-49" value="Insert New User Record" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="1725" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-50" value="User Created (UserID)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="1777" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-51" value="Log User Creation" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1581" y="1829" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-52" value="Insert Audit Record" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1953" y="1881" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-53" value="Send Welcome Email with Credentials" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1481" y="1933" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-54" value="Compose Welcome Message" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-8" target="JcAl-QFKSVPmOpr8AMmV-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1992" y="1985" />
+              <mxPoint x="1992" y="2015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-55" value="Email Sent Successfully" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-8" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1484" y="2067" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-56" value="Display Success Message" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="2119" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-57" value="Show &quot;User Created Successfully&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="2171" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-58" value="Search User" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="2302" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-59" value="Search Request(criteria)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="2354" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-60" value="Query Users Table" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="2406" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-61" value="Return User List" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="2458" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-62" value="Display Search Results" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="2510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-63" value="Select User to Modify" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="2562" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-64" value="Get User Details(userID)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="2614" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-65" value="Query User Information" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="2666" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-66" value="Return User Details" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="2718" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-67" value="Display User Profile" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="2770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-68" value="Select &quot;Change Role&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="2822" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-69" value="Get Available Roles" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="843" y="2874" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-70" value="Query Roles" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-5" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1500" y="2926" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-71" value="Return Roles" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1503" y="2978" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-72" value="Display Role Options" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-5" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="846" y="3030" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-73" value="Select New Role &amp; Confirm" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="3082" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-74" value="Update User Role Request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="3134" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-75" value="Check Active Sessions" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="3186" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-76" value="Return Session Info" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="3238" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-77" value="Update User Role" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="3290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-78" value="Role Updated" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="3342" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-79" value="Log Role Change" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1581" y="3394" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-80" value="Insert Audit Record (Old Role → New Role)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1953" y="3446" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-81" value="Notify User of Role Change" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1481" y="3498" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-82" value="Notification Sent" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-8" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1484" y="3550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-83" value="Display Update Success" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="3602" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-84" value="Show &quot;Role Updated Successfully&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="3654" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-85" value="Select &quot;Reset Password&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="3785" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-86" value="Request Password Reset" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="724" y="3837" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-87" value="Generate New Random Password" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="3889" />
+              <mxPoint x="1055" y="3919" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-88" value="Hash New Password" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="3971" />
+              <mxPoint x="1055" y="4001" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-89" value="Update Password &amp; Set ForceChange Flag" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1381" y="4053" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-90" value="Password Updated" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1384" y="4105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-91" value="Log Password Reset" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1581" y="4157" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-92" value="Insert Audit Record" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1953" y="4209" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-93" value="Send New Password" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1481" y="4261" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-94" value="Compose Password Reset Email" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-8" target="JcAl-QFKSVPmOpr8AMmV-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1992" y="4313" />
+              <mxPoint x="1992" y="4343" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-95" value="Email Sent" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-8" target="JcAl-QFKSVPmOpr8AMmV-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1484" y="4395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-96" value="Display Success" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-4" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727" y="4447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-97" value="Show &quot;Password Reset Successfully&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="4499" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-98" value="Navigate to Reports Section" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="4630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-99" value="Request Report Options" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="943" y="4682" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-100" value="Display Report Filters" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="946" y="4734" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-101" value="Select Month &amp; Year" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="4786" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-102" value="Click &quot;Generate Report&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="4838" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-103" value="Generate Monthly Report(month, year)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="943" y="4890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-104" value="Query Total Appointments" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="4942" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-105" value="Return Count" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="4994" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-106" value="Query Canceled Appointments" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="5046" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-107" value="Return Count" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="5098" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-108" value="Query Completed Appointments" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="5150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-109" value="Return Count" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="5202" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-110" value="Query Active Veterinarians" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="5254" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-111" value="Return Vet Count" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="5306" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-112" value="Query Schedule Statistics" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="5358" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-113" value="Return Schedule Data" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="5410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-114" value="Calculate Occupancy Rate" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1492" y="5462" />
+              <mxPoint x="1492" y="5492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-115" value="Generate Charts &amp; Graphs" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1492" y="5544" />
+              <mxPoint x="1492" y="5574" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-116" value="Save Report" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="5626" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-117" value="Report Saved" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1603" y="5678" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-118" value="Return Report Data" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="946" y="5730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-119" value="Display Report with Visualizations" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="5782" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-120" value="Click &quot;Export to PDF&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="5834" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-121" value="Export Report Request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="943" y="5886" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-122" value="Generate PDF Document" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1492" y="5938" />
+              <mxPoint x="1492" y="5968" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-123" value="Return PDF File" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-6" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="946" y="6020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-124" value="Download PDF Report" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="6072" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-125" value="Click &quot;Audit Log&quot;" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="6203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-126" value="Request Audit Log" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1293" y="6255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-127" value="Query Audit Table" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1953" y="6307" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-128" value="Return Audit Records" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1950" y="6359" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-129" value="Display Audit Log" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1296" y="6411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-130" value="Apply Filters (Date, User, Action)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="6463" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-131" value="Filter Audit Log(criteria)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1293" y="6515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-132" value="Query with Filters" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1953" y="6567" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-133" value="Return Filtered Records" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-7" target="JcAl-QFKSVPmOpr8AMmV-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1950" y="6619" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-134" value="Display Filtered Results" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-9" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1296" y="6671" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-135" value="Show Audit Trail" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="6723" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-136" value="Click Logout" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-1" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="6854" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-137" value="Logout Request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="593" y="6906" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-138" value="Log Logout Activity" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="6958" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-139" value="Invalidate Session Token" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792" y="7010" />
+              <mxPoint x="792" y="7040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-140" value="Logout Success" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-3" target="JcAl-QFKSVPmOpr8AMmV-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="596" y="7092" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-141" value="Redirect to Login Page" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="JcAl-QFKSVPmOpr8AMmV-2" target="JcAl-QFKSVPmOpr8AMmV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="7144" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-142" value="AUTHENTICATION PROCESS" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="115" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-143" value="CREATE NEW USER" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="744" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-144" value="MODIFY USER" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="2221" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-145" value="RESET USER PASSWORD" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="3704" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-146" value="GENERATE MONTHLY REPORT" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="4549" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-147" value="VIEW AUDIT LOG" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="6122" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-148" value="LOGOUT" style="fillColor=#ffff88;strokeColor=#9E916F;" vertex="1" parent="1">
+          <mxGeometry x="70" y="6773" width="2096" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-149" value="User Interface" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="350" y="7259" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-150" value="Authentication Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="641" y="7260" width="200" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-151" value="User Management Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="900" y="7259" width="225" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-152" value="Role Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1166" y="7250" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-153" value="Report Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1366" y="7240" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-154" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="7240" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-155" value="Email Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1866" y="7250" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-156" value="Audit Log Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="2066" y="7270" width="150" height="7239" as="geometry" />
+        </mxCell>
+        <mxCell id="JcAl-QFKSVPmOpr8AMmV-157" value="Admiinistrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="26" y="7259" width="30" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

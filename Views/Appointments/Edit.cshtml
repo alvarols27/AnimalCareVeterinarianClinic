@@ -1,0 +1,543 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.Appointment
+
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow">
+                <div class="card-header bg-primary-gradient text-white">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mb-0">Edit Appointment</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+
+                        <input type="hidden" id="EditingAppointmentId" value="@Model.AppointmentId" />
+
+                        <input type="hidden" asp-for="StartDateTime" id="StartDateTime" />
+                        <input type="hidden" asp-for="EndDateTime" id="EndDateTime" />
+
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <input type="hidden" asp-for="AppointmentId" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="VetId" class="form-label fw-bold">
+                                    Veterinarian <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="VetId" class="form-select" asp-items="ViewBag.VetId" required>
+                                    <option value="">-- Select Veterinarian --</option>
+                                </select>
+                                <span asp-validation-for="VetId" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="AnimalId" class="form-label fw-bold">
+                                    Animal <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="AnimalId" class="form-select" asp-items="ViewBag.AnimalId" required>
+                                    <option value="">-- Select Animal --</option>
+                                </select>
+                                <span asp-validation-for="AnimalId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="StartDateTime" class="form-label fw-bold">
+                                    Start Date/Time <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text" id="StartDate" class="form-control" value="@Model.StartDateTime.ToString("yyyy-MM-dd")" placeholder="Select a date" required />
+
+
+                                <!-- MVC validation -->
+                                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+                                <span id="StartDateTimeError" class="text-danger"></span>
+                                <div id="NoScheduleMessage" class="alert alert-info mt-2" style="display:none;">
+                                    This veterinarian currently has no available schedule.
+                                </div>
+
+
+                            
+                                </div>
+
+
+                            </div>
+
+                        <div id="TimeFields" class="row" style="display:none;">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Start Time</label>
+                                <select id="StartTime" class="form-select">
+                                    <option value="">-- Select start time --</option>
+                                </select>
+
+                                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">End Time</label>
+                                <select id="EndTime" class="form-select">
+                                    <option value="">-- Select end time --</option>
+                                </select>
+
+                                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                
+
+
+
+                        <div class="mb-3">
+                            <label asp-for="Purpose" class="form-label fw-bold">Purpose</label>
+                            <textarea asp-for="Purpose" class="form-control" rows="3"
+                                      placeholder="E.g., Routine checkup, Vaccination, Follow-up..."></textarea>
+                            <span asp-validation-for="Purpose" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="AppointmentStatus" class="form-label fw-bold">
+                                Status <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="AppointmentStatus" class="form-select" required>
+                                <option value="">-- Select Status --</option>
+                                <option value="Planned">Planned</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Canceled">Canceled</option>
+                            </select>
+                            <span asp-validation-for="AppointmentStatus" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <span class="btn-icon icon-back"></span> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <span class="btn-icon icon-save"></span> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.2rem 1.5rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%) !important;
+    }
+
+    .header-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+        .header-icon svg {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+    .card-header h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-label {
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.6rem 0.9rem;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+    textarea.form-control {
+        resize: vertical;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+    .btn-lg {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-back::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 4px;
+    }
+
+    .icon-save::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-top: none;
+        top: 2px;
+        left: 3px;
+    }
+
+    .icon-save::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 6px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 1px;
+        left: 5px;
+    }
+
+    .alert-danger {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        color: #991b1b;
+    }
+
+    .text-danger {
+        color: #dc2626 !important;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // -------------------------------------------------------
+            // Razor model values — these NEVER change unexpectedly
+            // -------------------------------------------------------
+            const initialDate     = "@Model.StartDateTime.ToString("yyyy-MM-dd")";
+            const existingStart   = "@Model.StartDateTime.ToString("HH:mm")";
+            const existingEnd     = "@Model.EndDateTime.ToString("HH:mm")";
+
+            // -------------------------------------------------------
+            // DOM ELEMENTS
+            // -------------------------------------------------------
+            const vetSelect     = document.getElementById("VetId");
+            const dateInput     = document.getElementById("StartDate");
+            const startHidden   = document.getElementById("StartDateTime");
+            const endHidden     = document.getElementById("EndDateTime");
+            const noSchedule    = document.getElementById("NoScheduleMessage");
+            const startSelect   = document.getElementById("StartTime");
+            const endSelect     = document.getElementById("EndTime");
+            const timeFields    = document.getElementById("TimeFields");
+            const errorLabel    = document.getElementById("StartDateTimeError");
+
+            let scheduledDates = [];
+
+            // -------------------------------------------------------
+            // FLATPICKR INIT — allow old dates since we're editing
+            // -------------------------------------------------------
+            const datePicker = flatpickr("#StartDate", {
+                dateFormat: "Y-m-d",
+                minDate: initialDate || "today",
+                defaultDate: initialDate || null,
+                disable: [
+                    date => date.getDay() === 0 // disable Sundays
+                ],
+                onChange(_, dateStr) {
+                    if (dateStr) {
+                        startHidden.value = "";
+                        endHidden.value = "";
+                        loadTimes();
+                    }
+                }
+            });
+
+            // -------------------------------------------------------
+            // PRELOAD: Set date if editing an appointment
+            // -------------------------------------------------------
+            if (initialDate) {
+                datePicker.setDate(initialDate);
+                dateInput.value = initialDate;
+            }
+
+            // -------------------------------------------------------
+            // Helper: Load vet schedule (which days they work)
+            // -------------------------------------------------------
+            function loadVetSchedule() {
+                const vetId = vetSelect.value;
+                if (!vetId) return;
+
+                fetch(`/Appointments/GetVetScheduledDates?vetId=${vetId}`)
+                    .then(r => r.json())
+                    .then(data => {
+                        scheduledDates = data;
+
+                        if (!scheduledDates || scheduledDates.length === 0) {
+                            noSchedule.style.display = "block";
+                            datePicker.clear();
+                            datePicker.set("enable", []);
+                            dateInput.disabled = true;
+                            return;
+                        }
+
+                        noSchedule.style.display = "none";
+                        dateInput.disabled = false;
+
+                        datePicker.set("enable", scheduledDates);
+                    });
+            }
+
+            // -------------------------------------------------------
+            // Helper: Load available appointment times
+            // -------------------------------------------------------
+            function loadTimes() {
+                const vetId = vetSelect.value;
+                const date = dateInput.value;
+
+                if (!vetId || !date) return;
+
+                const editingId = document.getElementById("EditingAppointmentId").value;
+
+               fetch(`/Appointments/GetAvailableTimes?vetId=${vetId}&date=${date}&excludeId=${editingId}`)
+                    .then(r => r.json())
+                    .then(times => showTimes(times));
+            }
+
+            // -------------------------------------------------------
+            // Fills dropdowns + preselects the existing values
+            // -------------------------------------------------------
+                          function showTimes(times) {
+            startSelect.innerHTML = "<option value=''>-- Select start time --</option>";
+            endSelect.innerHTML   = "<option value=''>-- Select end time --</option>";
+
+            if (times.length === 0) {
+                timeFields.style.display = "none";
+                return;
+            }
+
+            // Fill both dropdowns with the FULL list
+            times.forEach(t => {
+                startSelect.appendChild(new Option(t, t));
+                endSelect.appendChild(new Option(t, t));
+            });
+
+            // On edit: insert missing times so they still appear
+            if (existingStart && !times.includes(existingStart)) {
+                startSelect.appendChild(new Option(existingStart, existingStart));
+            }
+
+            if (existingEnd && !times.includes(existingEnd)) {
+                endSelect.appendChild(new Option(existingEnd, existingEnd));
+            }
+
+            timeFields.style.display = "flex";
+
+            // Preselect existing times (edit mode)
+            if (existingStart) startSelect.value = existingStart;
+            if (existingEnd)   endSelect.value = existingEnd;
+
+            const date = dateInput.value;
+
+            if (existingStart)
+                startHidden.value = `${date}T${existingStart}:00`;
+
+            if (existingEnd)
+                endHidden.value = `${date}T${existingEnd}:00`;
+        }
+
+
+
+            // -------------------------------------------------------
+            // TIME VALIDATION (Start < End)
+            // -------------------------------------------------------
+            function validateTimeOrder() {
+                const start = startSelect.value;
+                const end = endSelect.value;
+
+                errorLabel.textContent = "";
+
+                if (!start || !end) return true;
+
+                const s = parseInt(start.split(":")[0]) * 60 + parseInt(start.split(":")[1]);
+                const e = parseInt(end.split(":")[0]) * 60 + parseInt(end.split(":")[1]);
+
+                if (e <= s) {
+                    errorLabel.textContent = "End time must be later than the start time.";
+                    endSelect.value = "";
+                    return false;
+                }
+
+                return true;
+            }
+
+            // -------------------------------------------------------
+            // Update hidden fields when selecting times
+            // -------------------------------------------------------
+            startSelect.addEventListener("change", () => {
+                validateTimeOrder();
+                const d = dateInput.value;
+
+                if (startSelect.value)
+                    startHidden.value = `${d}T${startSelect.value}:00`;
+
+                if (startSelect.value && endSelect.value && validateTimeOrder())
+                    endHidden.value = `${d}T${endSelect.value}:00`;
+            });
+
+            endSelect.addEventListener("change", () => {
+                if (!validateTimeOrder()) return;
+
+                const d = dateInput.value;
+
+                if (startSelect.value && endSelect.value)
+                    endHidden.value = `${d}T${endSelect.value}:00`;
+            });
+
+            // -------------------------------------------------------
+            // On vet change → reset everything
+            // -------------------------------------------------------
+            vetSelect.addEventListener("change", () => {
+                dateInput.value = "";
+                startHidden.value = "";
+                endHidden.value = "";
+
+                startSelect.innerHTML = "<option value=''>-- Select start time --</option>";
+                endSelect.innerHTML   = "<option value=''>-- Select end time --</option>";
+                timeFields.style.display = "none";
+
+                loadVetSchedule();
+            });
+
+            // -------------------------------------------------------
+            // FORM VALIDATION before submit
+            // -------------------------------------------------------
+            document.querySelector("form").addEventListener("submit", e => {
+                errorLabel.textContent = "";
+
+                if (!startHidden.value || !endHidden.value) {
+                    e.preventDefault();
+                    errorLabel.textContent = "Please select a valid start and end time.";
+                }
+            });
+
+            // -------------------------------------------------------
+            // FINAL INIT: Load schedule + times on page load
+            // -------------------------------------------------------
+            loadVetSchedule();
+
+                    setTimeout(() => {
+            if (dateInput.value) {
+                loadTimes();
+            }
+        }, 150);
+
+        });
+    </script>
+
+}

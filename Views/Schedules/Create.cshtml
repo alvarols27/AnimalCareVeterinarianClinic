@@ -1,0 +1,368 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.Schedule
+
+@{
+    ViewData["Title"] = "Create Schedule";
+    bool isVetLoggedIn = ViewBag.IsVetLoggedIn == true;
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary-gradient text-white">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="mb-0">Create New Schedule</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <!-- Vet select -->
+                        <div class="mb-3">
+                            <label asp-for="VetId" class="form-label fw-bold">
+                                Veterinarian <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="VetId"
+                                    id="VetId"
+                                    class="form-select"
+                                    asp-items="ViewBag.VetId"
+                                    required
+                                    disabled="@(isVetLoggedIn)">
+                                <option value="">-- Select Veterinarian --</option>
+                            </select>
+
+                            @* Hidden field so VetId is still posted when dropdown is disabled *@
+                            @if (isVetLoggedIn)
+                            {
+                                <input type="hidden" name="VetId" value="@Model.VetId" />
+                            }
+
+                            <span asp-validation-for="VetId" class="text-danger"></span>
+                        </div>
+
+                        <!-- Schedule date -->
+                        <div class="mb-3">
+                            <label asp-for="ScheduleDate" class="form-label fw-bold">
+                                Schedule Date <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="ScheduleDate"
+                                   id="ScheduleDate"
+                                   type="text"
+                                   class="form-control"
+                                   autocomplete="off"
+                                   placeholder="Select a date"
+                                   required />
+                            <span asp-validation-for="ScheduleDate" class="text-danger"></span>
+                            <span id="ScheduleDateError" class="text-danger"></span>
+                        </div>
+
+                        <!-- Start / End time -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Start Time (leave blank for all day)</label>
+                                <select id="StartTime" class="form-select">
+                                    @* <option value="">-- Select start time --</option> *@
+                                   
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">End Time (leave blank for all day)</label>
+                                <select id="EndTime" class="form-select">
+                                    @* <option value="">-- Select end time --</option> *@
+                                </select>
+                            </div>
+                        </div>
+
+                        <input type="hidden" asp-for="StartTime" id="StartTimeHidden" />
+                        <input type="hidden" asp-for="EndTime" id="EndTimeHidden" />
+
+
+                        <!-- Status -->
+                        <div class="mb-3 mt-3">
+                            <label asp-for="ScheduleStatus" class="form-label fw-bold">
+                                Status <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="ScheduleStatus" class="form-select" required>
+                                <option value="">-- Select Status --</option>
+                                <option value="Free" selected>Free</option>
+                                <option value="Busy">Busy</option>
+                            </select>
+                            <span asp-validation-for="ScheduleStatus" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <span class="btn-icon icon-back"></span> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <span class="btn-icon icon-check"></span> Create
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.2rem 1.5rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%) !important;
+    }
+
+    .header-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+    .header-icon svg {
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+
+    .card-header h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-label {
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.6rem 0.9rem;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: #475569;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-lg {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-back::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 4px;
+    }
+
+    .icon-check::before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 8px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 1px;
+        left: 5px;
+    }
+
+    .alert-danger {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        color: #991b1b;
+    }
+
+    .text-danger {
+        color: #dc2626 !important;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // ========== FLATPICKR DATE ========== //
+            flatpickr("#ScheduleDate", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                disable: [date => date.getDay() === 0], // Sunday closed
+                onChange: function(_, dateStr) {
+                    if (dateStr) generateTimesForDate(dateStr);
+                }
+            });
+
+            // Business hours
+            const weekdayStart = "08:00", weekdayEnd = "18:00";
+            const saturdayStart = "09:00", saturdayEnd = "16:00";
+
+            const startSel = document.getElementById("StartTime");
+            const endSel   = document.getElementById("EndTime");
+            const startHidden = document.getElementById("StartTimeHidden");
+            const endHidden   = document.getElementById("EndTimeHidden");
+
+            // ========== Generate times dynamically ========== //
+            function generateTimesForDate(dateStr) {
+                const date = new Date(dateStr + "T00:00");
+                const day = date.getDay();
+
+                let open = weekdayStart, close = weekdayEnd;
+                if (day === 6) { open = saturdayStart; close = saturdayEnd; }
+                if (day === 0) return;
+
+                fillDropdown(startSel, open, close);
+                fillDropdown(endSel, open, close);
+
+                startHidden.value = "";
+                endHidden.value = "";
+            }
+
+            function fillDropdown(select, open, close) {
+                select.innerHTML = "<option value=''>-- Select --</option>";
+
+                let [h, m] = open.split(":").map(Number);
+                const [endH, endM] = close.split(":").map(Number);
+
+                while (h < endH || (h === endH && m < endM)) {
+                    let hh = h.toString().padStart(2,"0");
+                    let mm = m.toString().padStart(2,"0");
+
+                    select.insertAdjacentHTML("beforeend", `<option value="${hh}:${mm}">${hh}:${mm}</option>`);
+
+                    m += 30;
+                    if (m >= 60) { h++; m = 0; }
+                }
+            }
+
+            // ========== Sync dropdown → hidden fields ========== //
+            startSel.addEventListener("change", () => startHidden.value = startSel.value);
+            endSel.addEventListener("change", () => endHidden.value = endSel.value);
+
+            // ========== FORM VALIDATION ========== //
+            document.querySelector("form").addEventListener("submit", function (e) {
+                const start = startSel.value;
+                const end   = endSel.value;
+
+                if (!start || !end) {
+                    e.preventDefault();
+                    alert("Start and End time are required.");
+                    return;
+                }
+
+                const s = convert(start);
+                const ed = convert(end);
+
+                if (ed <= s) {
+                    e.preventDefault();
+                    alert("End time must be later than Start time.");
+                    return;
+                }
+            });
+
+            function convert(t) {
+                const [h,m] = t.split(":").map(Number);
+                return h*60+m;
+            }
+
+        });
+    </script>
+
+}

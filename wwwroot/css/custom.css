@@ -1,0 +1,399 @@
+﻿body {
+    background: #f5f8fa;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.login-wrapper {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm {
+    width: 380px;
+    padding: 30px 28px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 1px solid #e1e5ea;
+}
+
+    .loginForm h2 {
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #2d3e50;
+    }
+
+    .loginForm label {
+        font-weight: 600;
+        color: #3a4b5c;
+    }
+
+    .loginForm .form-control {
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #b7c1cc;
+    }
+
+        .loginForm .form-control:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 0.15rem rgba(74, 144, 226, 0.3);
+        }
+
+    .loginForm button {
+        border-radius: 8px;
+        font-weight: 600;
+        padding: 10px;
+    }
+
+.btn {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    padding: 2px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .btn {
+        background-color: #4a90e2;
+    }
+
+
+
+.test {
+    color: Green;
+    background: gray;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 4px; /* ensures the pill doesn’t sit on the table border */
+}
+
+
+.badge-container {
+    margin-left: 10px;
+}
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid transparent;
+    background-color: #f6f6f6;
+    color: #555;
+}
+
+    /* icon styling */
+    .role-badge .role-icon {
+        font-style: normal;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    .role-badge.administrator {
+        background-color: #ffe8e8;
+        border-color: #ffc5c5;
+        color: #d64545;
+    }
+
+        .role-badge.administrator .role-icon::before {
+            content: "⚙️";
+        }
+
+    .role-badge.receptionist {
+        background-color: #e6f2ff;
+        border-color: #b9dcff;
+        color: #1b73d1;
+    }
+
+        .role-badge.receptionist .role-icon::before {
+            content: "📄";
+        }
+
+    .role-badge.veterinarian {
+        background-color: #f1e6ff;
+        border-color: #dbb8ff;
+        color: #8a39d1;
+    }
+
+        .role-badge.veterinarian .role-icon::before {
+            content: "🐶";
+        }
+
+
+
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    gap: 6px;
+}
+
+
+    /* dot */
+    .status-badge .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+
+    .status-badge.active {
+        background-color: #e6f9ea;
+        border-color: #b7edc1;
+        color: #2d8a3e;
+    }
+
+        .status-badge.active .status-dot {
+            background-color: #2ecc71;
+        }
+
+
+    .status-badge.inactive {
+        background-color: #ffeaea;
+        border-color: #ffbaba;
+        color: #d64545;
+    }
+
+        .status-badge.inactive .status-dot {
+            background-color: #e74c3c;
+        }
+
+
+
+.table-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    margin-top: 20px;
+}
+.table-card-header {
+    background: #1664f5;
+    color: white;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px 10px 0 0;
+}
+
+    .table-card-header h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+.table-icon {
+    font-size: 22px;
+}
+.table-header-btn {
+    background: #ffffff;
+    color: #1664f5;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #d0d8ff;
+}
+
+    .table-header-btn:hover {
+        background: #e8eeff;
+    }
+
+.pretty-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .pretty-table thead th {
+        background: #1e1f24;
+        color: #ffffff;
+        padding: 14px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .pretty-table tbody tr {
+        background: #f7f7f9;
+        border-bottom: 1px solid #e4e4e4;
+    }
+
+        .pretty-table tbody tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+    .pretty-table tbody td {
+        padding: 14px;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+}
+
+    .action-buttons a {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+    }
+
+
+
+/* Yellow Edit */
+.btn-edit {
+    background: #f5b400;
+}
+
+/* Teal Details */
+.btn-details {
+    background: #17c3e2;
+}
+
+/* Red Delete */
+.btn-delete {
+    background: #e63946;
+}
+
+.btn-edit:hover {
+    background: #dba000;
+}
+
+.btn-details:hover {
+    background: #13a9c4;
+}
+
+.btn-delete:hover {
+    background: #c72e3a;
+}
+
+
+/* Appointment status pills */
+.status-badge.pending {
+    background-color: #fff4d6;
+    border-color: #f5d487;
+    color: #a66a00;
+}
+
+.status-badge.completed {
+    background-color: #e8f9ee;
+    border-color: #b5e4c4;
+    color: #2b7a3d;
+}
+
+.status-badge.cancelled {
+    background-color: #ffe6e6;
+    border-color: #ffb3b3;
+    color: #b91c1c;
+}
+
+/* status icons */
+.status-badge .status-icon::before {
+    font-style: normal;
+}
+
+.status-badge.pending .status-icon::before {
+    content: "⏳";
+}
+
+.status-badge.completed .status-icon::before {
+    content: "✔️";
+}
+
+.status-badge.cancelled .status-icon::before {
+    content: "❌";
+}
+
+.status-badge.free {
+    color: green;
+    background-color:chartreuse;
+}
+
+.status-badge.busy {
+    color: darkred;
+    background-color: red;
+}
+
+/* Species pill */
+.species-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    background: #eef2f7;
+    color: #333;
+}
+
+    .species-badge .icon {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Color accents */
+    .species-badge.dog {
+        background: #e8f7ff;
+        border-color: #b7e3ff;
+        color: #0077b6;
+    }
+
+    .species-badge.cat {
+        background: #fef3e8;
+        border-color: #ffd7a6;
+        color: #b66300;
+    }
+
+    .species-badge.bird {
+        background: #eafaf2;
+        border-color: #b3e6cc;
+        color: #227a52;
+    }
+
+    .species-badge.reptile {
+        background: #f3e8ff;
+        border-color: #d6b4ff;
+        color: #7a2bc7;
+    }
+
+    .species-badge.other {
+        background: #f0f0f0;
+        border-color: #d6d6d6;
+        color: #555;
+    }
+
+
+.table-icon .icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

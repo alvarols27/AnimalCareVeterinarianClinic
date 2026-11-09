@@ -1,0 +1,505 @@
+﻿@model IEnumerable<AnimalCareVeterinaryClinicDBFirst.Models.Animal>
+
+@{
+    ViewData["Title"] = "Animals";
+}
+
+<div class="table-card">
+    <div class="table-card-header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="10" r="3"></circle>
+                    <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"></path>
+                </svg>
+            </div>
+            <h2>Animals</h2>
+        </div>
+          @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+                            {
+        <a asp-action="Create" class="table-header-btn">
+            <span class="btn-icon icon-plus"></span> Create New
+        </a>
+                            }
+    </div>
+
+    <div class="table-responsive">
+        <table class="pretty-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Species</th>
+                    <th>Breed</th>
+                    <th>Sex</th>
+                    <th>Birth Date</th>
+                    <th>Weight (kg)</th>
+                    <th>Owner</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string species = item.Species?.ToLower() ?? "other";
+                    string speciesClass = species switch
+                    {
+                        "dog" => "dog",
+                        "cat" => "cat",
+                        "bird" => "bird",
+                        "reptile" => "reptile",
+                        _ => "other"
+                    };
+
+                    <tr>
+                        <td>
+                            <div class="name-cell">
+                                <span class="animal-avatar">@item.AnimalName?.Substring(0, 1).ToUpper()</span>
+                                <span>@item.AnimalName</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="species-badge @speciesClass">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    @if (speciesClass == "dog")
+                                    {
+                                        <path d="M4 7l3-3 3 3M20 7l-3-3-3 3M6 7h12v6a6 6 0 0 1-12 0V7z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                    }
+                                    else if (speciesClass == "cat")
+                                    {
+                                        <path d="M4 4l3 2 3-2 3 2 3-2 3 2v7a7 7 0 0 1-14 0V4z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                    }
+                                    else if (speciesClass == "bird")
+                                    {
+                                        <path d="M5 8l14-5-5 14-2-6-7-3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                    }
+                                    else if (speciesClass == "reptile")
+                                    {
+                                        <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2" fill="none" />
+                                        <circle cx="12" cy="12" r="2" fill="currentColor" />
+                                    }
+                                    else
+                                    {
+                                        <path d="M5 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM7 14a3 4 0 1 1 10 0 3 4 0 1 1-10 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" />
+                                    }
+                                </svg>
+                                @item.Species
+                            </span>
+                        </td>
+
+                        <td>@item.Breed</td>
+                        <td>
+                            <span class="sex-badge @(item.Sex == "M" ? "male" : "female")">
+                                @(item.Sex == "M" ? "Male" : "Female")
+                            </span>
+                        </td>
+                        <td>@item.BirthDate?.ToString("MMM dd, yyyy")</td>
+                        <td>@item.AnimalWeight</td>
+                        <td>@item.Owner.OwnerFirstName @item.Owner.OwnerLastName</td>
+
+                        <td class="action-buttons">
+    @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+    {
+                            <a class="btn-edit" asp-action="Edit" asp-route-id="@item.AnimalId">
+                                <span class="action-icon icon-edit"></span> Edit
+                            </a>
+    }
+                            <a class="btn-details" asp-action="Details" asp-route-id="@item.AnimalId">
+                                <span class="action-icon icon-info"></span> Details
+                            </a>
+    @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+    {
+                            <a class="btn-delete" asp-action="Delete" asp-route-id="@item.AnimalId">
+                                <span class="action-icon icon-trash"></span> Delete
+                            </a>
+    }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --success-green: #059669;
+        --info-blue: #0ea5e9;
+        --danger-red: #dc2626;
+        --warning-orange: #d97706;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+    }
+
+    .table-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        margin: 1.5rem 0;
+    }
+
+    .table-card-header {
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .header-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .header-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+    .table-card-header h2 {
+        color: white;
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .table-header-btn {
+        padding: 0.6rem 1.2rem;
+        background: white;
+        color: var(--primary-blue);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+    }
+
+        .table-header-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: #f8fafc;
+        }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-plus::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+        top: 6px;
+        left: 2px;
+    }
+
+    .icon-plus::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+        top: 2px;
+        left: 6px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .pretty-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .pretty-table thead {
+            background: var(--bg-light);
+        }
+
+        .pretty-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .pretty-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #1e293b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            vertical-align: middle;
+            height: 56px;
+            box-sizing: border-box;
+        }
+
+        .pretty-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+            .pretty-table tbody tr:hover {
+                background: var(--bg-light);
+            }
+
+    .name-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .animal-avatar {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+
+    .species-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+        .species-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .species-badge.dog {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .species-badge.cat {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .species-badge.bird {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .species-badge.reptile {
+            background: #fef3c7;
+            color: #a16207;
+        }
+
+        .species-badge.other {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+
+    .sex-badge {
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+        .sex-badge.male {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .sex-badge.female {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+    .action-buttons {
+        display: flex;
+        gap: 6px;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+        .action-buttons a {
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            line-height: 1;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+    .action-icon {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-edit::before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 8px;
+        border: 2px solid currentColor;
+        border-right: none;
+        border-top: none;
+        transform: skew(-10deg);
+        top: 2px;
+        left: 1px;
+    }
+
+    .icon-edit::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        top: 0px;
+        right: 1px;
+    }
+
+    .icon-info::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        top: 1px;
+        left: 1px;
+    }
+
+    .icon-info::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 4px;
+        background: currentColor;
+        top: 5px;
+        left: 5px;
+    }
+
+    .icon-trash::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 9px;
+        border: 2px solid currentColor;
+        border-radius: 0 0 2px 2px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-trash::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+        top: 1px;
+        left: 1px;
+    }
+
+    .btn-edit {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+        .btn-edit:hover {
+            background: #bfdbfe;
+            transform: translateY(-1px);
+        }
+
+    .btn-details {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+        .btn-details:hover {
+            background: #bae6fd;
+            transform: translateY(-1px);
+        }
+
+    .btn-delete {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+        .btn-delete:hover {
+            background: #fecaca;
+            transform: translateY(-1px);
+        }
+
+    @@media (max-width: 768px) {
+        .table-card-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .table-header-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pretty-table {
+            font-size: 0.85rem;
+        }
+
+            .pretty-table th,
+            .pretty-table td {
+                padding: 0.7rem;
+            }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+            .action-buttons a {
+                width: 100%;
+                justify-content: center;
+            }
+    }
+</style>

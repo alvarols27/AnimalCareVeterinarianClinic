@@ -1,0 +1,455 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.UserAccount
+
+@{
+    ViewData["Title"] = "User Account Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary-gradient text-white">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <h3 class="mb-0">User Account Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="user-profile">
+                        <div class="profile-avatar">@Model.UserFirstName?.Substring(0, 1).ToUpper()@Model.UserLastName?.Substring(0, 1).ToUpper()</div>
+                        <div class="profile-info">
+                            <h4>@Model.UserFirstName @Model.UserLastName</h4>
+                            <span class="role-badge @Model.Role.RoleName.ToLower()">
+                                <span class="role-icon"></span>
+                                @Model.Role.RoleName
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="details-list">
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                User Login
+                            </div>
+                            <div class="detail-value">@Model.UserLogin</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                First Name
+                            </div>
+                            <div class="detail-value">@Model.UserFirstName</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Last Name
+                            </div>
+                            <div class="detail-value">@Model.UserLastName</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v6l4 2"></path>
+                                </svg>
+                                Status
+                            </div>
+                            <div class="detail-value">
+                                <span class="status-badge @(Model.UserActive == true ? "active" : "inactive")">
+                                    <span class="status-dot"></span>
+                                    @(Model.UserActive == true ? "Active" : "Inactive")
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                Role
+                            </div>
+                            <div class="detail-value">@Model.Role.RoleName</div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <span class="btn-icon icon-back"></span> Back to List
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@Model.UserId" class="btn btn-primary">
+                            <span class="btn-icon icon-edit"></span> Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.UserId" class="btn btn-danger">
+                            <span class="btn-icon icon-delete"></span> Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+        --danger-red: #dc2626;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.2rem 1.5rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%) !important;
+    }
+
+    .header-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+        .header-icon svg {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+    .card-header h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background: var(--bg-light);
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-avatar {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .profile-info h4 {
+        margin: 0 0 0.5rem 0;
+        color: var(--text-dark);
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+
+    .role-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .role-icon {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .role-badge.admin,
+    .role-badge.administrator {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+        .role-badge.admin .role-icon,
+        .role-badge.administrator .role-icon {
+            background: #dc2626;
+        }
+
+    .role-badge.veterinarian {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+        .role-badge.veterinarian .role-icon {
+            background: #059669;
+        }
+
+    .role-badge.receptionist {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+        .role-badge.receptionist .role-icon {
+            background: var(--primary-blue);
+        }
+
+    .details-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .detail-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .detail-icon {
+        width: 18px;
+        height: 18px;
+        color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .detail-value {
+        color: #64748b;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .status-badge.active {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+        .status-badge.active .status-dot {
+            background: #15803d;
+        }
+
+    .status-badge.inactive {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+        .status-badge.inactive .status-dot {
+            background: #991b1b;
+        }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+    .btn-danger {
+        background: linear-gradient(135deg, var(--danger-red), #b91c1c);
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-back::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 4px;
+    }
+
+    .icon-edit::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-right: none;
+        border-top: none;
+        transform: skew(-10deg);
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-edit::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        top: 1px;
+        right: 2px;
+    }
+
+    .icon-delete::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 12px;
+        border: 2px solid currentColor;
+        border-radius: 0 0 2px 2px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-delete::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 2px;
+        background: currentColor;
+        top: 1px;
+        left: 1px;
+    }
+
+    @@media (max-width: 768px) {
+        .detail-row {
+            grid-template-columns: 1fr;
+            gap: 0.3rem;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

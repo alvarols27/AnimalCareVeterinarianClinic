@@ -1,0 +1,423 @@
+﻿@model AnimalCareVeterinaryClinicDBFirst.Models.Notification
+
+@{
+    ViewData["Title"] = "Notification Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary-gradient text-white">
+                    <div class="header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <h3 class="mb-0">Notification Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="details-list">
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <span class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                    </svg>
+                                </span>
+                                @Html.DisplayNameFor(model => model.NotificationType)
+                            </div>
+                            <div class="detail-value">@Html.DisplayFor(model => model.NotificationType)</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <span class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </span>
+                                @Html.DisplayNameFor(model => model.SendDate)
+                            </div>
+                            <div class="detail-value">@Html.DisplayFor(model => model.SendDate)</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <span class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </span>
+                                @Html.DisplayNameFor(model => model.Channel)
+                            </div>
+                            <div class="detail-value">@Html.DisplayFor(model => model.Channel)</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <span class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </span>
+                                @Html.DisplayNameFor(model => model.NotificationStatus)
+                            </div>
+                            <div class="detail-value">@Html.DisplayFor(model => model.NotificationStatus)</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <span class="detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </span>
+                                @Html.DisplayNameFor(model => model.Appointment)
+                            </div>
+                            <div class="action-buttons mt-3">
+                                <a asp-controller="Appointments"
+                                   asp-action="Details"
+                                   asp-route-id="@Model.Appointment.AppointmentId"
+                                   class="btn btn-success">
+                                    Go to Appointment Page
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-label">
+                            <span class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6H4v12h16V6z"></path>
+                                </svg>
+                            </span>
+                            Patient
+                        </div>
+                        <div class="detail-value">
+                            @Model.Appointment.Animal.AnimalName (@Model.Appointment.Animal.Species)
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-label">
+                            <span class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M5.5 22a6.5 6.5 0 0 1 13 0"></path>
+                                </svg>
+                            </span>
+                            Veterinarian
+                        </div>
+                        <div class="detail-value">
+                            @Model.Appointment.Vet.VetFirstName @Model.Appointment.Vet.VetLastName
+                            - @Model.Appointment.Vet.VetSpecialty
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-label">
+                            <span class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 8v4l3 3"></path>
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                            </span>
+                            Appointment Date & Time
+                        </div>
+                        <div class="detail-value">
+                            @Model.Appointment.StartDateTime.ToString("MMM dd yyyy - hh:mm tt")
+                            →
+                            @Model.Appointment.EndDateTime.ToString("hh:mm tt")
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-label">
+                            <span class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                                </svg>
+                            </span>
+                            Purpose
+                        </div>
+                        <div class="detail-value">@Model.Appointment.Purpose</div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-label">
+                            <span class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </span>
+                            Appointment Status
+                        </div>
+                        <div class="detail-value">@Model.Appointment.AppointmentStatus</div>
+                    </div>
+
+
+                    <div class="action-buttons mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <span class="btn-icon icon-back"></span> Back to List
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@Model.NotificationId" class="btn btn-primary">
+                            <span class="btn-icon icon-edit"></span> Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.NotificationId" class="btn btn-danger">
+                            <span class="btn-icon icon-delete"></span> Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+        --danger-red: #dc2626;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.2rem 1.5rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%) !important;
+    }
+
+    .header-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+        .header-icon svg {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+    .card-header h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .details-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .detail-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .detail-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        display: inline-block;
+    }
+
+        .detail-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--primary-blue);
+        }
+
+    .detail-value {
+        color: #64748b;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+    .btn-danger {
+        background: linear-gradient(135deg, var(--danger-red), #b91c1c);
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-back::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        top: 3px;
+        left: 4px;
+    }
+
+    .icon-edit::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-right: none;
+        border-top: none;
+        transform: skew(-10deg);
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-edit::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        top: 1px;
+        right: 2px;
+    }
+
+    .icon-delete::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 12px;
+        border: 2px solid currentColor;
+        border-radius: 0 0 2px 2px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-delete::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 2px;
+        background: currentColor;
+        top: 1px;
+        left: 1px;
+    }
+
+    @@media (max-width: 768px) {
+        .detail-row {
+            grid-template-columns: 1fr;
+            gap: 0.3rem;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

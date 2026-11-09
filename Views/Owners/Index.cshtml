@@ -1,0 +1,403 @@
+﻿@model IEnumerable<AnimalCareVeterinaryClinicDBFirst.Models.Owner>
+
+@{
+    ViewData["Title"] = "Owners";
+}
+
+<div class="table-card">
+    <div class="table-card-header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <h2>Owners</h2>
+        </div>
+          @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+                            {
+        <a asp-action="Create" class="table-header-btn">
+            <span class="btn-icon icon-plus"></span> Create New
+        </a>
+                            }
+    </div>
+
+    <div class="table-responsive">
+        <table class="pretty-table">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="name-cell">
+                                <span class="owner-avatar">@item.OwnerLastName?.Substring(0, 1).ToUpper()</span>
+                                <span>@item.OwnerLastName</span>
+                            </div>
+                        </td>
+                        <td>@item.OwnerFirstName</td>
+                        <td>@item.OwnerPhone</td>
+                        <td>@item.OwnerEmail</td>
+                        <td>@item.OwnerAddress</td>
+
+                        <td class="action-buttons">
+                            @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+                             {
+                            <a class="btn-edit" asp-action="Edit" asp-route-id="@item.OwnerId">
+                                <span class="action-icon icon-edit"></span> Edit
+                            </a>
+                              }
+                            <a class="btn-details" asp-action="Details" asp-route-id="@item.OwnerId">
+                                <span class="action-icon icon-info"></span> Details
+                            </a>
+                            @if (User.IsInRole("Administrator") || User.IsInRole("Receptionist"))
+                             {
+                            <a class="btn-delete" asp-action="Delete" asp-route-id="@item.OwnerId">
+                                <span class="action-icon icon-trash"></span> Delete
+                            </a>
+                             }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --primary-blue-dark: #1e40af;
+        --success-green: #059669;
+        --info-blue: #0ea5e9;
+        --danger-red: #dc2626;
+        --warning-orange: #d97706;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --border-color: #e2e8f0;
+    }
+
+    .table-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        margin: 1.5rem 0;
+    }
+
+    .table-card-header {
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .header-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .header-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+    .table-card-header h2 {
+        color: white;
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .table-header-btn {
+        padding: 0.6rem 1.2rem;
+        background: white;
+        color: var(--primary-blue);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+    }
+
+        .table-header-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: #f8fafc;
+        }
+
+    .btn-icon {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-plus::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+        top: 6px;
+        left: 2px;
+    }
+
+    .icon-plus::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+        top: 2px;
+        left: 6px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .pretty-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .pretty-table thead {
+            background: var(--bg-light);
+        }
+
+        .pretty-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .pretty-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #1e293b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            vertical-align: middle;
+            height: 56px;
+            box-sizing: border-box;
+        }
+
+        .pretty-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+            .pretty-table tbody tr:hover {
+                background: var(--bg-light);
+            }
+
+    .name-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .owner-avatar {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 6px;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+        .action-buttons a {
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            line-height: 1;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+    .action-icon {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .icon-edit::before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 8px;
+        border: 2px solid currentColor;
+        border-right: none;
+        border-top: none;
+        transform: skew(-10deg);
+        top: 2px;
+        left: 1px;
+    }
+
+    .icon-edit::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        top: 0px;
+        right: 1px;
+    }
+
+    .icon-info::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        top: 1px;
+        left: 1px;
+    }
+
+    .icon-info::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 4px;
+        background: currentColor;
+        top: 5px;
+        left: 5px;
+    }
+
+    .icon-trash::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 9px;
+        border: 2px solid currentColor;
+        border-radius: 0 0 2px 2px;
+        top: 2px;
+        left: 2px;
+    }
+
+    .icon-trash::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+        top: 1px;
+        left: 1px;
+    }
+
+    .btn-edit {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+        .btn-edit:hover {
+            background: #bfdbfe;
+            transform: translateY(-1px);
+        }
+
+    .btn-details {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+        .btn-details:hover {
+            background: #bae6fd;
+            transform: translateY(-1px);
+        }
+
+    .btn-delete {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+        .btn-delete:hover {
+            background: #fecaca;
+            transform: translateY(-1px);
+        }
+
+    @@media (max-width: 768px) {
+        .table-card-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .table-header-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pretty-table {
+            font-size: 0.85rem;
+        }
+
+            .pretty-table th,
+            .pretty-table td {
+                padding: 0.7rem;
+            }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+            .action-buttons a {
+                width: 100%;
+                justify-content: center;
+            }
+    }
+</style>
