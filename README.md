@@ -1,4 +1,4 @@
-# 📋 AnimalCare Veterinary Clinic (DB-First ASP.NET Core MVC)
+# 🐾 AnimalCare Veterinary Clinic (DB-First ASP.NET Core MVC)
 
 AnimalCare Veterinary Clinic is an ASP.NET Core MVC web application built with Entity Framework Core (DB-First). It manages animals, owners, veterinarians, appointments, schedules, medical histories, and notifications for a veterinary clinic, with role-based authentication for Administrators, Receptionists, and Veterinarians. The application was originally developed against SQL Server and has since been migrated to PostgreSQL.
 
